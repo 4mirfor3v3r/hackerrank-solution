@@ -58,12 +58,10 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
 }
 
 /*
- * Complete the 'getNode' function below.
+ * Complete the 'removeDuplicates' function below.
  *
- * The function is expected to return an INTEGER.
- * The function accepts following parameters:
- *  1. INTEGER_SINGLY_LINKED_LIST llist
- *  2. INTEGER positionFromTail
+ * The function is expected to return an INTEGER_SINGLY_LINKED_LIST.
+ * The function accepts INTEGER_SINGLY_LINKED_LIST llist as parameter.
  */
 
 /*
@@ -76,19 +74,20 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  *
  */
 
-int getNode(SinglyLinkedListNode* llist, int positionFromTail) {
-        SinglyLinkedListNode* tail = llist, *temp, *p;
-        while (tail->next!=NULL) {
-            tail=tail->next;
-        }
-        temp=tail;
-        while (positionFromTail > 0) {
-            p=llist;
-            while(p!=NULL&&p->next != temp){
+SinglyLinkedListNode* removeDuplicates(SinglyLinkedListNode* llist) {
+    SinglyLinkedListNode* p, *q;
+    p=llist;
+        while (p!=NULL) {
+            if(p->next!= NULL && p->next->data == p->data){
+                if(p->next->next != NULL){
+                    q=p->next->next;
+                    p->next=q;
+                }else{
+                    p->next=NULL;
+                }
+            }else{
                 p=p->next;
             }
-            temp=p;
-            positionFromTail--;
         }
-        return temp->data;
+    return llist;
 }
