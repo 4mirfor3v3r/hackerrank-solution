@@ -18,22 +18,6 @@ vector<string> split(const string &);
 
 int twoStacks(int maxSum, vector<int> a, vector<int> b)
 {
-    // int c=0, ca=0, cb=0, i=0, j=0, sum=maxSum;
-    // while(i<a.size() && j<b.size()){
-    //     if(a[i] < b[j] && sum-a[i] >=0){
-    //         sum-=a[i];
-    //         c++;
-    //         i++;
-    //     }else if(a[i] >= b[j] && sum-b[j]>=0){
-    //         sum-=b[j];
-    //         c++;
-    //         j++;
-    //     }else{
-    //         i=a.size();
-    //     }
-    // }
-    // return c;
-
     int tempSum = 0;
     int ca = 0;
     int cb = 0;
